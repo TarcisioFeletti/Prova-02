@@ -12,6 +12,5 @@ import javax.swing.ImageIcon;
  * @author tarci
  */
 public interface IProxyImagemModel {
-    public void carregarImagem(String url);
     public ImageIcon display();
 }

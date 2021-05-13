@@ -5,7 +5,6 @@
  */
 package com.pss.sensoriamentoremoto.Model;
 
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 /**
@@ -14,42 +13,25 @@ import javax.swing.ImageIcon;
  */
 public class ProxyImagemModel implements IProxyImagemModel {
 
-    private static ProxyImagemModel instancia;
     private String nomeImagem;
-    private ArrayList<ImagemRealModel> cacheImagem;
+    private String url;
+    private ImagemRealModel imagem;
 
-    private ProxyImagemModel() {
-        this.cacheImagem = new ArrayList();
-    }
-
-    public static ProxyImagemModel getInstancia() {
-        if (instancia == null) {
-            instancia = new ProxyImagemModel();
-        }
-        return instancia;
-    }
-
-    @Override
-    public void carregarImagem(String nome) {
-        cacheImagem.add(new ImagemRealModel(nome));
+    public ProxyImagemModel(String nome, String url) {
+        this.nomeImagem = nome;
+        this.url = url;
     }
 
     @Override
     public ImageIcon display() {
-        for (ImagemRealModel imagem : cacheImagem) {
-            if (imagem.getNomeImagem().equals(this.nomeImagem)) {
-                System.out.println("Exibindo Imagem");
-                return imagem.display();
-            }
-        }
-        carregarImagem(this.nomeImagem);
-        System.out.println("Carregando Imagem");
-        System.out.println("Exibindo Imagem");
-        return cacheImagem.get(cacheImagem.size()-1).display();
+        imagem = CacheModel.getInstancia().getImagem(nomeImagem, url);
+        return imagem.display();
     }
 
-    public void setNomeImagem(String nomeImagem) {
-        this.nomeImagem = nomeImagem;
+    public String getNomeImagem() {
+        return nomeImagem;
     }
+    
+    
 
 }

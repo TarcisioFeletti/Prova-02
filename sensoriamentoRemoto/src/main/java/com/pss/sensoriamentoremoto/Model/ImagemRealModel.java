@@ -14,19 +14,17 @@ import javax.swing.ImageIcon;
  */
 public class ImagemRealModel implements IProxyImagemModel{
     private String nomeImagem;
+    private String url;
     private ImageIcon imagem;
     
-    public ImagemRealModel(String nomeImagem){
+    public ImagemRealModel(String nomeImagem, String url){
         this.nomeImagem = nomeImagem;
-        carregarImagem(nomeImagem);
+        this.url = url;
+        carregarImagem(url);
     }
     
-    @Override
     public void carregarImagem(String url) {
-        imagem = new ImageIcon(new ImageIcon("C:\\Users\\tarci\\OneDrive\\Documentos\\Estudos\\2020 2\\PSS\\"
-                + "Prova02\\prova02\\sensoriamentoRemoto\\src\\main\\java\\com\\pss\\sensoriamentoremoto\\Imagens\\"
-                + url).
-                getImage().getScaledInstance(880, 620, 0));
+        imagem = Download.fromUrl(url, 920, 620);
     }
 
     @Override
