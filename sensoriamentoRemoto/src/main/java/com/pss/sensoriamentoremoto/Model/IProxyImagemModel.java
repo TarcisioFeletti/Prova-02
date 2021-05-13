@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.pss.sensoriamentoremoto.Presenter;
+package com.pss.sensoriamentoremoto.Model;
+
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author tarci
  */
-public class MainPresenter {
-    public static void main(String[] args) {
-        new PrincipalPresenter();
-    }
+public interface IProxyImagemModel {
+    public void carregarImagem(String url);
+    public ImageIcon display();
 }
