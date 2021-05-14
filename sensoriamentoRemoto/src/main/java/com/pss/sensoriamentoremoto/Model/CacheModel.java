@@ -5,6 +5,7 @@
  */
 package com.pss.sensoriamentoremoto.Model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -26,7 +27,7 @@ public class CacheModel {
         return instancia;
     }
 
-    public ImagemRealModel getImagem(String nome, String url) {
+    public ImagemRealModel getImagem(String nome, String url) throws IOException {
         int i = 0;
         for (ImagemRealModel imagemReal : cacheImagem) {
             if (imagemReal.getNomeImagem().equals(nome)) {

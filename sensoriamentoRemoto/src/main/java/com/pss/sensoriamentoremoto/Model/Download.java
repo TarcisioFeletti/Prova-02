@@ -19,17 +19,15 @@ import javax.swing.ImageIcon;
  */
 public class Download {
 
-    public static ImageIcon fromUrl(String url, int width, int heigth) {
+    public static ImageIcon fromUrl(String url, int width, int heigth) throws IOException{
         try {
             URL imageUrl = new URL(url);
             InputStream in = imageUrl.openStream();
             BufferedImage image = ImageIO.read(in);
             in.close();
-            ImageIcon imageIcon = new ImageIcon(image.getScaledInstance(width, heigth, Image.SCALE_DEFAULT));
-            return imageIcon;
+            return new ImageIcon(image.getScaledInstance(heigth, width, Image.SCALE_SMOOTH));
         } catch (IOException ioe) {
-            //log the error
+            throw new IOException("Verifique a conexão com a internet");
         }
-        return null;
     }
 }

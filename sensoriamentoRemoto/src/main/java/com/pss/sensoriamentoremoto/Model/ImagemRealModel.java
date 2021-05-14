@@ -5,26 +5,27 @@
  */
 package com.pss.sensoriamentoremoto.Model;
 
-import com.pss.sensoriamentoremoto.Model.IProxyImagemModel;
+import java.io.IOException;
 import javax.swing.ImageIcon;
 
 /**
  *
  * @author tarci
  */
-public class ImagemRealModel implements IProxyImagemModel{
+public class ImagemRealModel implements IProxyImagemModel {
+
     private String nomeImagem;
     private String url;
     private ImageIcon imagem;
-    
-    public ImagemRealModel(String nomeImagem, String url){
+
+    public ImagemRealModel(String nomeImagem, String url) throws IOException {
         this.nomeImagem = nomeImagem;
         this.url = url;
         carregarImagem(url);
     }
-    
-    public void carregarImagem(String url) {
-        imagem = Download.fromUrl(url, 920, 620);
+
+    public void carregarImagem(String url) throws IOException{
+        imagem = Download.fromUrl(url, 670, 930);
     }
 
     @Override
@@ -35,5 +36,5 @@ public class ImagemRealModel implements IProxyImagemModel{
     public String getNomeImagem() {
         return nomeImagem;
     }
-    
+
 }
