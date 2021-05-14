@@ -5,6 +5,7 @@
  */
 package com.pss.sensoriamentoremoto.Model;
 
+import java.io.IOException;
 import javax.swing.ImageIcon;
 
 /**
@@ -23,7 +24,7 @@ public class ProxyImagemModel implements IProxyImagemModel {
     }
 
     @Override
-    public ImageIcon display() {
+    public ImageIcon display() throws IOException {
         imagem = CacheModel.getInstancia().getImagem(nomeImagem, url);
         return imagem.display();
     }

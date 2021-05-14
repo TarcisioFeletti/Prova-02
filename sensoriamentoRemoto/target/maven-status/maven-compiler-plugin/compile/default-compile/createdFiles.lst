@@ -1,3 +1,13 @@
-com\pss\sensoriamentoremoto\Presenter\Principal.class
+com\pss\sensoriamentoremoto\Model\CacheModel.class
+com\pss\sensoriamentoremoto\Presenter\PrincipalPresenter$4.class
+com\pss\sensoriamentoremoto\Presenter\PrincipalPresenter$3.class
+com\pss\sensoriamentoremoto\Model\ProxyImagemModel.class
+com\pss\sensoriamentoremoto\Presenter\PrincipalPresenter$2.class
+com\pss\sensoriamentoremoto\Presenter\PrincipalPresenter.class
+com\pss\sensoriamentoremoto\Presenter\MainPresenter.class
+com\pss\sensoriamentoremoto\Presenter\PrincipalPresenter$1.class
+com\pss\sensoriamentoremoto\Model\ImagemRealModel.class
+com\pss\sensoriamentoremoto\Model\IProxyImagemModel.class
+com\pss\sensoriamentoremoto\Presenter\PrincipalPresenter$5.class
 com\pss\sensoriamentoremoto\View\PrincipalView.class
-com\pss\sensoriamentoremoto\View\PrincipalView$1.class
+com\pss\sensoriamentoremoto\Model\Download.class

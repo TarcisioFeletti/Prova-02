@@ -5,6 +5,7 @@
  */
 package com.pss.sensoriamentoremoto.Model;
 
+import java.io.IOException;
 import javax.swing.ImageIcon;
 
 /**
@@ -12,5 +13,5 @@ import javax.swing.ImageIcon;
  * @author tarci
  */
 public interface IProxyImagemModel {
-    public ImageIcon display();
+    public ImageIcon display() throws IOException;
 }
