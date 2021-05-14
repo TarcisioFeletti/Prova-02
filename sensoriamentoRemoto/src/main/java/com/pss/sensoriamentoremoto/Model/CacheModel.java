@@ -13,31 +13,23 @@ import java.util.ArrayList;
  * @author tarci
  */
 public class CacheModel {
-    private static CacheModel instancia;
-    private ArrayList<ImagemRealModel> cacheImagem;
+
+    private ArrayList<ProxyImagemModel> cacheImagem;
     
-    private CacheModel(){
+    public CacheModel(){
         cacheImagem = new ArrayList();
-    }
-    
-    public static CacheModel getInstancia(){
-        if(instancia == null){
-            instancia = new CacheModel();
-        }
-        return instancia;
+        cacheImagem.add(new ProxyImagemModel("Africa", "https://gitlab.com/TarcisioFeletti/imagens-prova02-pss/-/raw/master/africa1920.jpg"));
+        cacheImagem.add(new ProxyImagemModel("Australia", "https://gitlab.com/TarcisioFeletti/imagens-prova02-pss/-/raw/master/australia1920.jpg"));
+        cacheImagem.add(new ProxyImagemModel("Europa", "https://gitlab.com/TarcisioFeletti/imagens-prova02-pss/-/raw/master/europe1920.jpg"));
+        cacheImagem.add(new ProxyImagemModel("Egito", "https://gitlab.com/TarcisioFeletti/imagens-prova02-pss/-/raw/master/map1920.jpg"));
+        cacheImagem.add(new ProxyImagemModel("EUA", "https://gitlab.com/TarcisioFeletti/imagens-prova02-pss/-/raw/master/unitedstates1920.jpg"));
     }
 
-    public ImagemRealModel getImagem(String nome, String url) throws IOException {
-        int i = 0;
-        for (ImagemRealModel imagemReal : cacheImagem) {
-            if (imagemReal.getNomeImagem().equals(nome)) {
-                return imagemReal;
+    public ProxyImagemModel getProxy(String nome) throws IOException {
+        for (ProxyImagemModel proxy : cacheImagem) {
+            if (proxy.getNomeImagem().equalsIgnoreCase(nome)) {
+                return proxy;
             }
-            i++;
-        }
-        if (i <= cacheImagem.size()) {
-            cacheImagem.add(new ImagemRealModel(nome, url));
-            return cacheImagem.get(cacheImagem.size() - 1);
         }
         return null;
     }
