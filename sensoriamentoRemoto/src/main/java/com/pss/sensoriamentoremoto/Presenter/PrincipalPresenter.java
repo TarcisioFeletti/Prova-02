@@ -5,8 +5,8 @@
  */
 package com.pss.sensoriamentoremoto.Presenter;
 
+import com.pss.sensoriamentoremoto.Model.CacheModel;
 import com.pss.sensoriamentoremoto.Model.Download;
-import com.pss.sensoriamentoremoto.Model.ProxyImagemModel;
 import com.pss.sensoriamentoremoto.View.PrincipalView;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -21,9 +21,11 @@ import javax.swing.plaf.metal.MetalBorders;
 public final class PrincipalPresenter {
 
     private PrincipalView tela;
+    private CacheModel cache;
 
     public PrincipalPresenter() {
         tela = new PrincipalView();
+        cache = new CacheModel();
         tela.setLocationRelativeTo(tela.getParent());
         tela.setVisible(true);
         try {
@@ -43,9 +45,11 @@ public final class PrincipalPresenter {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    tela.getLblImagem().setIcon(new ProxyImagemModel("Africa", "https://gitlab.com/TarcisioFeletti/imagens-prova02-pss/-/raw/master/africa1920.jpg").display());
+                    tela.getLblImagem().setIcon(cache.getProxy("Africa").display());
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(tela, ex.getMessage());
+                } catch (NullPointerException ne) {
+                    JOptionPane.showMessageDialog(tela, "Não foi possivel localizar o proxy");
                 }
             }
 
@@ -71,9 +75,11 @@ public final class PrincipalPresenter {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    tela.getLblImagem().setIcon(new ProxyImagemModel("Australia", "https://gitlab.com/TarcisioFeletti/imagens-prova02-pss/-/raw/master/australia1920.jpg").display());
+                    tela.getLblImagem().setIcon(cache.getProxy("Australia").display());
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(tela, ex.getMessage());
+                } catch (NullPointerException ne) {
+                    JOptionPane.showMessageDialog(tela, "Não foi possivel localizar o proxy");
                 }
             }
 
@@ -99,9 +105,11 @@ public final class PrincipalPresenter {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    tela.getLblImagem().setIcon(new ProxyImagemModel("Europa", "https://gitlab.com/TarcisioFeletti/imagens-prova02-pss/-/raw/master/europe1920.jpg").display());
+                    tela.getLblImagem().setIcon(cache.getProxy("Europa").display());
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(tela, ex.getMessage());
+                } catch (NullPointerException ne) {
+                    JOptionPane.showMessageDialog(tela, "Não foi possivel localizar o proxy");
                 }
             }
 
@@ -127,9 +135,11 @@ public final class PrincipalPresenter {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    tela.getLblImagem().setIcon(new ProxyImagemModel("Egito", "https://gitlab.com/TarcisioFeletti/imagens-prova02-pss/-/raw/master/map1920.jpg").display());
+                    tela.getLblImagem().setIcon(cache.getProxy("Egito").display());
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(tela, ex.getMessage());
+                } catch (NullPointerException ne) {
+                    JOptionPane.showMessageDialog(tela, "Não foi possivel localizar o proxy");
                 }
             }
 
@@ -155,9 +165,11 @@ public final class PrincipalPresenter {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    tela.getLblImagem().setIcon(new ProxyImagemModel("EUANoite", "https://gitlab.com/TarcisioFeletti/imagens-prova02-pss/-/raw/master/unitedstates1920.jpg").display());
+                    tela.getLblImagem().setIcon(cache.getProxy("EUA").display());
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(tela, ex.getMessage());
+                } catch (NullPointerException ne) {
+                    JOptionPane.showMessageDialog(tela, "Não foi possivel localizar o proxy");
                 }
             }
 

@@ -25,14 +25,14 @@ public class ProxyImagemModel implements IProxyImagemModel {
 
     @Override
     public ImageIcon display() throws IOException {
-        imagem = CacheModel.getInstancia().getImagem(nomeImagem, url);
+        if (imagem == null) {
+            imagem = new ImagemRealModel(nomeImagem, url);
+        }
         return imagem.display();
     }
 
     public String getNomeImagem() {
         return nomeImagem;
     }
-    
-    
 
 }
